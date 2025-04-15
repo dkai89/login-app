@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials-id')
-        IMAGE_NAME = 'yourdockerhubusername/login-app'
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
+        IMAGE_NAME = 'dilipdevops1982/login-app'
     }
 
     stages {
         stage('Clone GitHub Repo') {
             steps {
-                git 'https://github.com/yourusername/login-app.git'
+                git 'https://github.com/dkai89/login-app.git'
             }
         }
 
@@ -24,7 +24,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials-id') {
+                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
                         docker.image("${IMAGE_NAME}").push('latest')
                     }
                 }
