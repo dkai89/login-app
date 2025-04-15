@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
-        IMAGE_NAME = 'dilipdevops1982/login-app'
+        IMAGE_NAME = 'dilipdevops1982/loginapp2'
     }
 
     stages {
